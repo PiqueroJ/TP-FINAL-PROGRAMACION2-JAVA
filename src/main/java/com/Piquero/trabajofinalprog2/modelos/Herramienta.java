@@ -1,5 +1,6 @@
 package com.Piquero.trabajofinalprog2.modelos;
 
+import com.Piquero.trabajofinalprog2.utilidades.CategoriaHerramienta;
 import com.Piquero.trabajofinalprog2.utilidades.EstadoHerramientas;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
@@ -29,9 +30,10 @@ public class Herramienta {
     @Column(name = "descripcion", length = 150, nullable = false)
     private String descripcion;
     
-    @NotBlank
-    @Column(name = "categoria", length = 100, nullable = false)
-    private String categoria;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria", length = 30, nullable = false)
+    private CategoriaHerramienta categoria;
     
     @NotBlank
     @Column(name = "marca", length = 100, nullable = false)
